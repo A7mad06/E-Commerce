@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ahmad Bustany\\Desktop\\Projects\\E-Commerse App\\Api\\E-Commerce Api\\E-Commerce Api\\E-Commerce Api.csproj": {}
+    "C:\\Users\\Ahmad Bustany\\Desktop\\Projects\\E-Commerse App\\Api\\ecommerce.api\\E-Commerce Api\\E-Commerce Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ahmad Bustany\\Desktop\\Projects\\E-Commerse App\\Api\\E-Commerce Api\\E-Commerce Api\\E-Commerce Api.csproj": {
+    "C:\\Users\\Ahmad Bustany\\Desktop\\Projects\\E-Commerse App\\Api\\ecommerce.api\\E-Commerce Api\\E-Commerce Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ahmad Bustany\\Desktop\\Projects\\E-Commerse App\\Api\\E-Commerce Api\\E-Commerce Api\\E-Commerce Api.csproj",
+        "projectUniqueName": "C:\\Users\\Ahmad Bustany\\Desktop\\Projects\\E-Commerse App\\Api\\ecommerce.api\\E-Commerce Api\\E-Commerce Api.csproj",
         "projectName": "E-Commerce Api",
-        "projectPath": "C:\\Users\\Ahmad Bustany\\Desktop\\Projects\\E-Commerse App\\Api\\E-Commerce Api\\E-Commerce Api\\E-Commerce Api.csproj",
+        "projectPath": "C:\\Users\\Ahmad Bustany\\Desktop\\Projects\\E-Commerse App\\Api\\ecommerce.api\\E-Commerce Api\\E-Commerce Api.csproj",
         "packagesPath": "C:\\Users\\Ahmad Bustany\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ahmad Bustany\\Desktop\\Projects\\E-Commerse App\\Api\\E-Commerce Api\\E-Commerce Api\\obj\\",
+        "outputPath": "C:\\Users\\Ahmad Bustany\\Desktop\\Projects\\E-Commerse App\\Api\\ecommerce.api\\E-Commerce Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
