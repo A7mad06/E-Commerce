@@ -12,7 +12,7 @@ namespace E_Commerce_Api.Controllers
     public class AdminController : ControllerBase
     {
         [HttpGet]
-        public async Task<IActionResult> GetAllAdmin()llll
+        public async Task<IActionResult> GetAllAdmin()
         {
             List < Admin > lst = new List<Admin>();
             SqlConnection con = new SqlConnection("Server=DESKTOP-ODD35L0\\SQLEXPRESS;Database=E-Commerce;Trusted_Connection=true");
