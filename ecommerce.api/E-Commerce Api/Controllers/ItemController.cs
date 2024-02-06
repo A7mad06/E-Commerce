@@ -38,20 +38,20 @@ namespace E_Commerce_Api.Controllers
         }
 
         [HttpPost]
-        [Route("Add-Item")]
+        [Route("Add-Item/{item_id:Guid}")]
 
-        public async Task<IActionResult> AddItem(Item item,Guid id,Product product)
+        public async Task<IActionResult> AddItem(Item item,[FromRoute]Guid cart_id,Product product)
         {
             item.Id = Guid.NewGuid();
-            item.Quantity *= item.Price;
+            item.Quantity= 1;
             item.subtotal = (item.Quantity * item.Price);
             SqlConnection sql = new SqlConnection(con);
-            SqlCommand cmd = new SqlCommand("insert into Order_Item(Order_Item_Id,Product_Id,Product_Quatity,Product_Price,Producr_Description,Cart_Id,item_Subtotal) values('"+item.Id+"','"+product.Id+"','"+item.Quantity+"','"+product.Price+"','"+product.Description+"','"+id+"','"+item.subtotal+"')", sql);
+            SqlCommand cmd = new SqlCommand("insert into Order_Item(Order_Item_Id,Product_Id,Product_Quatity,Product_Price,Producr_Description,Cart_Id,item_Subtotal) values('"+item.Id+"','"+product.Id+"','"+item.Quantity+"','"+product.Price+"','"+product.Description+"','"+cart_id+"','"+item.subtotal+"')", sql);
             sql.Open();
             cmd.ExecuteNonQuery();
             sql.Close();
             List<Item> items = new List<Item>();
-            SqlCommand command = new SqlCommand("select * from Order_Item where Cart_Id='"+id+"'", sql);
+            SqlCommand command = new SqlCommand("select * from Order_Item where Cart_Id='"+cart_id+"'", sql);
             DataTable dt = new DataTable();
             SqlDataAdapter ad = new SqlDataAdapter(command);
             ad.Fill(dt);
@@ -70,19 +70,5 @@ namespace E_Commerce_Api.Controllers
             return Ok(items);
         }
 
-        [HttpPut]
-
-
-        [HttpDelete]
-        [Route("Delete-Item")]
-        public async Task<IActionResult> DeleteItem(Guid id)
-        {
-            SqlConnection sql = new SqlConnection(con);
-            SqlCommand cmd = new SqlCommand("delete from Item_Order where Order_Item_Id='" + id + "'");
-            sql.Open();
-            cmd.ExecuteNonQuery();
-            sql.Close();
-            return Ok(0);
-        }
     }
 }

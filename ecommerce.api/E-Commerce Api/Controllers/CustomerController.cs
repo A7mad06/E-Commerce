@@ -7,7 +7,6 @@ using System.Data.SqlClient;
 namespace E_Commerce_Api.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
     public class CustomerController : ControllerBase
     {
         private readonly IConfiguration _configuration;
@@ -58,7 +57,7 @@ namespace E_Commerce_Api.Controllers
         public async Task<IActionResult> UpdateCustomer([FromRoute] string email,Customer customer)
         {
             SqlConnection con = new SqlConnection("Server=DESKTOP-ODD35L0\\SQLEXPRESS;Database=E-Commerce;Trusted_Connection=true");
-            SqlCommand command = new SqlCommand("Update Customer set Customer_Name='"+customer.Name+"',Customer_Password='"+customer.Password+"',Customer_Phone='"+customer.Phone+"',Customer_Address='"+customer.Address+"' where Customer_Id='" + id + "'",con);
+            SqlCommand command = new SqlCommand("Update Customer set Customer_Name='"+customer.Name+"',Customer_Password='"+customer.Password+"',Customer_Phone='"+customer.Phone+"',Customer_Address='"+customer.Address+"' where Customer_Email='" +email + "'",con);
             con.Open();
             command.ExecuteNonQuery();
             con.Close();
