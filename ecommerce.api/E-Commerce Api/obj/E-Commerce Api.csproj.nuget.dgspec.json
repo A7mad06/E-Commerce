@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ahmad Bustany\\Desktop\\Projects\\E-Commerse App\\Api\\ecommerce.api\\E-Commerce Api\\E-Commerce Api.csproj": {}
+    "E:\\New folder (2)\\Projects\\E-Commerse App\\Api\\ecommerce.api\\E-Commerce Api\\E-Commerce Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ahmad Bustany\\Desktop\\Projects\\E-Commerse App\\Api\\ecommerce.api\\E-Commerce Api\\E-Commerce Api.csproj": {
+    "E:\\New folder (2)\\Projects\\E-Commerse App\\Api\\ecommerce.api\\E-Commerce Api\\E-Commerce Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ahmad Bustany\\Desktop\\Projects\\E-Commerse App\\Api\\ecommerce.api\\E-Commerce Api\\E-Commerce Api.csproj",
+        "projectUniqueName": "E:\\New folder (2)\\Projects\\E-Commerse App\\Api\\ecommerce.api\\E-Commerce Api\\E-Commerce Api.csproj",
         "projectName": "E-Commerce Api",
-        "projectPath": "C:\\Users\\Ahmad Bustany\\Desktop\\Projects\\E-Commerse App\\Api\\ecommerce.api\\E-Commerce Api\\E-Commerce Api.csproj",
+        "projectPath": "E:\\New folder (2)\\Projects\\E-Commerse App\\Api\\ecommerce.api\\E-Commerce Api\\E-Commerce Api.csproj",
         "packagesPath": "C:\\Users\\Ahmad Bustany\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ahmad Bustany\\Desktop\\Projects\\E-Commerse App\\Api\\ecommerce.api\\E-Commerce Api\\obj\\",
+        "outputPath": "E:\\New folder (2)\\Projects\\E-Commerse App\\Api\\ecommerce.api\\E-Commerce Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -38,6 +38,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -76,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

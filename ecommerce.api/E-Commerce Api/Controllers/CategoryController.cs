@@ -13,14 +13,13 @@ namespace E_Commerce_Api.Controllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
-
+        public SqlConnection con = new SqlConnection("Server=DESKTOP-6K91J1U\\SQLEXPRESS;Database=e-commerce;Trusted_Connection=true");
 
 
         [HttpGet]
         public async Task<IActionResult> ShowAllCategories()
         {
-            SqlConnection con = new SqlConnection("Server=DESKTOP-ODD35L0\\SQLEXPRESS;Database=E-Commerce;Trusted_Connection=true");
-            SqlCommand com = new SqlCommand("Select * from Category",con);
+            SqlCommand com = new SqlCommand("Select * from category", con);
             DataTable dt = new DataTable();
             SqlDataAdapter adapter = new SqlDataAdapter(com);
             adapter.Fill(dt);
@@ -28,8 +27,8 @@ namespace E_Commerce_Api.Controllers
             foreach (DataRow row in dt.Rows)
             {
                 Category category = new Category();
-                category.Name = row[0].ToString();
-                category.Id = int.Parse(row[1].ToString());
+                category.Name = row[1].ToString();
+                category.Id = int.Parse(row[0].ToString());
                 categories.Add(category); ;
             }
             return Ok(categories);
@@ -38,53 +37,27 @@ namespace E_Commerce_Api.Controllers
 
 
 
-        [HttpGet]
-        [Route("{Name}")]
+        [HttpGet("{Name}")]
         public async Task<IActionResult> ShowCategoryProduct([FromRoute] string Name)
         {
-            SqlConnection con = new SqlConnection("Server=DESKTOP-ODD35L0\\SQLEXPRESS;Database=E-Commerce;Trusted_Connection=true");
-            SqlCommand com = new SqlCommand("Select * from Product where Category_Name='"+Name+"'", con);
-            DataTable dt = new DataTable();
-            SqlDataAdapter adapter = new SqlDataAdapter(com);
-            adapter.Fill(dt);
             List<Product> lst = new List<Product>();
-            foreach(DataRow dr in dt.Rows)
-            {
-                Product pro = new Product();
-                pro.Id = Guid.Parse(dr[0].ToString());
-                pro.Name = dr[1].ToString();
-                pro.Description = dr[2].ToString();
-                pro.Product_Category = dr[3].ToString();
-                pro.Stoke = int.Parse(dr[4].ToString());
-                pro.Price = int.Parse(dr[5].ToString());
-                lst.Add(pro);
-            }
-            return Ok(lst);
-        }
-
-
-
-
-        [HttpPost]
-        [Route("Add-Category")]
-        public async Task<IActionResult> AddCategory(Category category)
-        {
-            SqlConnection con = new SqlConnection("Server=DESKTOP-ODD35L0\\SQLEXPRESS;Database=E-Commerce;Trusted_Connection=true");
-            SqlCommand com = new SqlCommand("insert into Category(Category_Name) values('"+category.Name+"')", con);
-            con.Open();
-            com.ExecuteNonQuery();
-            con.Close();
-            SqlCommand cmd = new SqlCommand("Select * from Category where Category_Name='"+category.Name+"'",con);
+            SqlCommand cmd = new SqlCommand("select * from product where category_name='"+Name+"'", con);
             DataTable dt = new DataTable();
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            adapter.Fill(dt);
-            List<Category> lst = new List<Category>();
-            foreach(DataRow dr in dt.Rows)
+            SqlDataAdapter ad = new SqlDataAdapter(cmd);
+            ad.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
             {
-                Category category1 = new Category();
-                category1.Name =dr[0].ToString();
-                category1.Id = int.Parse(dr[1].ToString());
-                lst.Add(category1);
+                Product prod = new Product();
+                prod.Id = Guid.Parse(dr[0].ToString());
+                prod.Name = dr[5].ToString();
+                prod.Stoke = int.Parse(dr[2].ToString());
+                prod.Img1 = dr[6].ToString();
+                prod.Img2 = dr[7].ToString();
+                prod.Img3 = dr[8].ToString();
+                prod.Price = int.Parse(dr[1].ToString());
+                prod.Description = dr[3].ToString();
+                prod.Product_category = dr[4].ToString();
+                lst.Add(prod);
             }
             return Ok(lst);
         }

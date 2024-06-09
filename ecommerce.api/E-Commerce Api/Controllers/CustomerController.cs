@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web;
 
 namespace E_Commerce_Api.Controllers
 {
@@ -14,81 +15,78 @@ namespace E_Commerce_Api.Controllers
         {
             _configuration = configuration;
         }
-        [HttpGet]
-        public async Task<IActionResult> GetAllCustomers()
-        {
-            SqlConnection con = new SqlConnection("Server=DESKTOP-ODD35L0\\SQLEXPRESS;Database=E-Commerce;Trusted_Connection=true");
-            List<Customer> lst = new List<Customer>();
-            SqlCommand cm = new SqlCommand("select * from Customer",con);
-            DataTable dt = new DataTable();
-            SqlDataAdapter dp = new SqlDataAdapter(cm);
-            dp.Fill(dt);
-            foreach (DataRow dr in dt.Rows)
-            {
-                Customer obj = new Customer();
-                obj.Id = Guid.Parse(dr[0].ToString());
-                obj.Name = dr[1].ToString();
-                obj.Address = dr[3].ToString();
-                obj.Phone = int.Parse(dr[2].ToString());
-                obj.Password = dr[4].ToString();
-                obj.Email = dr[5].ToString();
-                lst.Add(obj);
-            }
-            return Ok(lst);
-        }
+        public SqlConnection con = new SqlConnection("Server=DESKTOP-6K91J1U\\SQLEXPRESS;Database=e-commerce;Trusted_Connection=true");
 
-        [HttpPost]
-        [Route("Creat-Account")]
 
+        //SignUp
+
+        [HttpPost("SignUp")]
         public async Task<IActionResult> AddCustomer(Customer customer)
         {
-            customer.Id = Guid.NewGuid();
-            SqlConnection con = new SqlConnection("Server=DESKTOP-ODD35L0\\SQLEXPRESS;Database=E-Commerce;Trusted_Connection=true");
-            SqlCommand cmd = new SqlCommand("insert into Customer(Customer_Id,Customer_Name,Customer_Email,Customer_Password,Customer_Phone,Customer_Address) values('"+customer.Id+"','"+customer.Name+"','"+customer.Email+"','"+customer.Password+"','"+customer.Phone+"','"+customer.Address+"')",con);
-            con.Open();
-            cmd.ExecuteNonQuery();
-            con.Close();
-            return Ok(customer);
-        }
-
-        [HttpPut]
-        [Route("{email}")]
-
-        public async Task<IActionResult> UpdateCustomer([FromRoute] string email,Customer customer)
-        {
-            SqlConnection con = new SqlConnection("Server=DESKTOP-ODD35L0\\SQLEXPRESS;Database=E-Commerce;Trusted_Connection=true");
-            SqlCommand command = new SqlCommand("Update Customer set Customer_Name='"+customer.Name+"',Customer_Password='"+customer.Password+"',Customer_Phone='"+customer.Phone+"',Customer_Address='"+customer.Address+"' where Customer_Email='" +email + "'",con);
-            con.Open();
-            command.ExecuteNonQuery();
-            con.Close();
-            List<Customer> lst = new List<Customer>();
-            SqlCommand cm = new SqlCommand("select * from Customer where Customer_Email='"+email+"'", con);
+            SqlCommand check = new SqlCommand("select * from customer where email='"+customer.Email+"'",con);
+            SqlDataAdapter da = new SqlDataAdapter(check);
             DataTable dt = new DataTable();
-            SqlDataAdapter dp = new SqlDataAdapter(cm);
-            dp.Fill(dt);
-            foreach (DataRow dr in dt.Rows)
+            da.Fill(dt);
+
+            if (dt.Rows.Count > 0)
             {
-                Customer obj = new Customer();
-                obj.Id = Guid.Parse(dr[0].ToString());
-                obj.Name = dr[1].ToString();
-                obj.Address = dr[3].ToString();
-                obj.Phone = int.Parse(dr[2].ToString());
-                obj.Password = dr[4].ToString();
-                obj.Email = dr[5].ToString();
-                lst.Add(obj);
+                return BadRequest();
             }
-            return Ok(lst);
+            else
+            {
+
+                customer.Id = Guid.NewGuid();
+
+                SqlCommand cmd = new SqlCommand("insert into Customer(id,name,email,password,phone,address) values('" + customer.Id + "','" + customer.Name + "','" + customer.Email + "','" + customer.Password + "','" + customer.Phone + "','" + customer.Address + "')", con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+                return Ok();
+            }
         }
 
-        [HttpDelete]
-        [Route("{email}")]
 
-        public async Task<IActionResult> DeleteCustomer([FromRoute] string email)
+        [HttpPost("Login")]
+
+        public async Task<IActionResult> Login(string user,string pass)
         {
-            SqlConnection con = new SqlConnection("Server=DESKTOP-ODD35L0\\SQLEXPRESS;Database=E-Commerce;Trusted_Connection=true");
-            SqlCommand command = new SqlCommand("Delete from Customer where Customer_Email='" + email + "'", con);
-            con.Open(); command.ExecuteNonQuery(); con.Close();
-            return Ok();
+            if (user == null)
+            {
+                return BadRequest();
+            }
+            int num;
+            if (user.StartsWith('0'))
+            {
+                num = int.Parse(user);
+                SqlCommand check = new SqlCommand($"Select * From customer where phone='" + num + "' And password='" + pass + "'", con);
+                SqlDataAdapter da = new SqlDataAdapter(check);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    return Ok();
+                }
+                else
+                {
+                    return NotFound();
+                }
+
+            }
+            else
+            {
+                SqlCommand check = new SqlCommand($"Select * From customer where email='" + user + "' And password='" + pass + "'", con);
+                SqlDataAdapter da = new SqlDataAdapter(check);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    return Ok();
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
         }
     }
 }
