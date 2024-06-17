@@ -44,5 +44,16 @@ namespace E_Commerce_Api.Controllers
             }
             return Ok(lst);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> AddProduct(Product product)
+        {
+            product.Id = Guid.NewGuid();
+            SqlCommand command = new SqlCommand($"insert into product values('"+product.Id+"','"+product.Price+"','"+product.Stoke+"','"+product.Description+"','"+product.Product_category+"','"+product.Name+"','"+product.Img1+"','"+product.Img2+"','"+product.Img3+"')", con);
+            con.Open();
+            command.ExecuteNonQuery();
+            con.Close();
+            return Ok();
+        }
     }
 }

@@ -1,7 +1,20 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "E:\\New folder (2)\\Projects\\E-Commerse App\\Api\\ecommerce.api\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A7BA1AD4-D30C-471D-BF54-71CA163BCA7C}|E-Commerce Api\\E-Commerce Api.csproj|e:\\new folder (2)\\projects\\e-commerse app\\api\\ecommerce.api\\e-commerce api\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7BA1AD4-D30C-471D-BF54-71CA163BCA7C}|E-Commerce Api\\E-Commerce Api.csproj|solutionrelative:e-commerce api\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7BA1AD4-D30C-471D-BF54-71CA163BCA7C}|E-Commerce Api\\E-Commerce Api.csproj|e:\\new folder (2)\\projects\\e-commerse app\\api\\ecommerce.api\\e-commerce api\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7BA1AD4-D30C-471D-BF54-71CA163BCA7C}|E-Commerce Api\\E-Commerce Api.csproj|solutionrelative:e-commerce api\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7BA1AD4-D30C-471D-BF54-71CA163BCA7C}|E-Commerce Api\\E-Commerce Api.csproj|e:\\new folder (2)\\projects\\e-commerse app\\api\\ecommerce.api\\e-commerce api\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7BA1AD4-D30C-471D-BF54-71CA163BCA7C}|E-Commerce Api\\E-Commerce Api.csproj|solutionrelative:e-commerce api\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +22,49 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "E:\\New folder (2)\\Projects\\E-Commerse App\\Api\\ecommerce.api\\E-Commerce Api\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "E-Commerce Api\\Controllers\\ProductController.cs",
+              "ToolTip": "E:\\New folder (2)\\Projects\\E-Commerse App\\Api\\ecommerce.api\\E-Commerce Api\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "E-Commerce Api\\Controllers\\ProductController.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAAwDQAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-15T01:06:40.706Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CartController.cs",
+              "DocumentMoniker": "E:\\New folder (2)\\Projects\\E-Commerse App\\Api\\ecommerce.api\\E-Commerce Api\\Controllers\\CartController.cs",
+              "RelativeDocumentMoniker": "E-Commerce Api\\Controllers\\CartController.cs",
+              "ToolTip": "E:\\New folder (2)\\Projects\\E-Commerse App\\Api\\ecommerce.api\\E-Commerce Api\\Controllers\\CartController.cs*",
+              "RelativeToolTip": "E-Commerce Api\\Controllers\\CartController.cs*",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAwB0AAABKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-14T23:42:34.83Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CategoryController.cs",
+              "DocumentMoniker": "E:\\New folder (2)\\Projects\\E-Commerse App\\Api\\ecommerce.api\\E-Commerce Api\\Controllers\\CategoryController.cs",
+              "RelativeDocumentMoniker": "E-Commerce Api\\Controllers\\CategoryController.cs",
+              "ToolTip": "E:\\New folder (2)\\Projects\\E-Commerse App\\Api\\ecommerce.api\\E-Commerce Api\\Controllers\\CategoryController.cs",
+              "RelativeToolTip": "E-Commerce Api\\Controllers\\CategoryController.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAwCIAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-14T23:26:26.879Z"
             }
           ]
         }

@@ -2,6 +2,7 @@
 using E_Commerce_Api.Products;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NPOI.SS.Formula.Functions;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -29,8 +30,9 @@ namespace E_Commerce_Api.Controllers
                 Category category = new Category();
                 category.Name = row[1].ToString();
                 category.Id = int.Parse(row[0].ToString());
-                categories.Add(category); ;
+                categories.Add(category);
             }
+            categories =categories.OrderBy(c=>c.Id).ToList();
             return Ok(categories);
         }
 
